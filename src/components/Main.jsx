@@ -1,4 +1,4 @@
-
+import { useState } from "react"
 
 const Main = () => {
   const posts = [
@@ -44,15 +44,21 @@ const Main = () => {
     }
   ]
 
+  const [addPost, setAddPost] = useState(null);
+
   return (
     <div>
       {posts.map(post => {
         return (
-          <ul className="list-group">
-            <li className="list-group-item" key={post['id']}>{post['title']}</li>
+          <ul className="list-group" key={post['id']}>
+            <li className="list-group-item fs-4">{post['title']}</li>
           </ul>
         )
       })}
+      <div className="d-flex col-12">
+        <input type="text" className="form-control mt-5 fs-4" placeholder="Inserisci un nuovo post" />
+        <button className="btn btn-success mt-5 fs-4" onClick={() => { setAddPost(addPost) }}>Aggiungi</button>
+      </div>
     </div>
   )
 }
