@@ -9,9 +9,14 @@ const Main = () => {
   return (
     <div>
       <ul className="list-group">
-        {posts.map(post => {
+        {posts.map((post, i) => {
           return (
-            <li className="list-group-item fs-4">{post}</li>
+            <li className="list-group-item fs-4" key={i}>
+              <div className="d-flex justify-content-between">
+                <div>{post}</div>
+                <button className="btn btn-danger">X</button>
+              </div>
+            </li>
           )
         })}
       </ul>
